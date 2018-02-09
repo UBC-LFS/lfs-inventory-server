@@ -2,7 +2,7 @@ import { Router } from 'express'
 
 const routes = Router()
 
-routes.get('/api/form', (req, res) => {
+routes.post('/api/form', (req, res) => {
   console.log(req)
 })
 
