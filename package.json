@@ -1,0 +1,33 @@
+{
+  "name": "lfs-inventory-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UBC-LFS/lfs-inventory-server.git"
+  },
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "nodemon": "^1.14.11",
+    "standard": "^10.0.3",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UBC-LFS/lfs-inventory-server/issues"
+  },
+  "homepage": "https://github.com/UBC-LFS/lfs-inventory-server#readme"
+}
