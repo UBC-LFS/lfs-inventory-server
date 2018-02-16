@@ -1,4 +1,5 @@
 var Client = require('mariasql');
+
 // table
 const table = 'InventoryClient'
 
@@ -8,7 +9,7 @@ var c = new Client({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   db: process.env.DB_NAME
-});
+})
 
 const fillForm = (form, profile, callback) => {
   const q = `'INSERT INTO ${table} VALUES ('${profile.cwl}', '${profile.shibFirstName}', '${profile.shibLastName}', 
@@ -18,15 +19,12 @@ const fillForm = (form, profile, callback) => {
   '${form.assetLocation}', '${form.disposalDate}', '${form.methodOfDisposal}', '${form.userType}', '${form.unitAffiliation}', '${form.cost}');`
 
   var prep = c.prepare(fillForm.q)
-  console.log(prep);
+  console.log(prep)
 
   // Insert
   c.query(prep, function (err, rows) { 
-    if (err) throw err;
-    console.dir(rows);
-  });
-
-  c.end();
+    if (err) throw err
+    console.dir(rows)
+  })
+  c.end()
 }
-
-

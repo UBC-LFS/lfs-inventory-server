@@ -1,5 +1,4 @@
 import { Router } from 'express'
-import path from 'path'
 import { fillForm } from './database'
 
 const routes = Router()
