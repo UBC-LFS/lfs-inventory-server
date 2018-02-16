@@ -18,8 +18,7 @@ const fillForm = (form, profile, callback) => {
   '${form.modelYear}', '${form.speedChart}', '${form.vendor}', '${form.jvNumber}', '${form.datePurchased}', '${form.currentUser}', '${form.previousUser}', 
   '${form.assetLocation}', '${form.disposalDate}', '${form.methodOfDisposal}', '${form.userType}', '${form.unitAffiliation}', '${form.cost}');`
 
-  var prep = c.prepare(fillForm.q)
-  console.log(prep)
+  var prep = c.prepare(q)
 
   // Insert
   c.query(prep, function (err, rows) { 
@@ -27,4 +26,8 @@ const fillForm = (form, profile, callback) => {
     console.dir(rows)
   })
   c.end()
+}
+
+export {
+  fillForm
 }
