@@ -12,8 +12,6 @@ var c = new Client({
 })
 
 const fillForm = (form, profile, callback) => {
-  console.log('FORM IS HERE ' + form)
-  console.log('FORM IS HERE ' + `${form.dateModified}`)
   const sql = `INSERT INTO ${table} VALUES ('${profile.cwl}', '${profile.shibFirstName}', '${profile.shibLastName}', 
   '${form.id}', '${form.date}', '${form.dateModified}', '${form.user}', 
   '${form.assetName}', '${form.assetModelNumber}', '${form.assetSpecs}', '${form.assetSerialNumber}', '${form.assetTag}', '${form.assetOwner}', 

@@ -1,12 +1,11 @@
 import { Router } from 'express'
 import { fillForm } from './database'
 
+var multer = require('multer')
+var upload = multer()
 const routes = Router()
 
-routes.post('/api/form', (req, res) => {
-  console.log('THIS IS THE REQUEST ' + req)
-  console.log('THIS IS THE BODY ' + req.body)
-  console.log('THIS IS THE DATA ' + `${req.body.id}`)
+routes.post('/api/form', upload.array(), (req, res) => {
   const profile = {
     cwl: req.headers.cwlloginname,
     shibFirstName: req.headers.givenname,
