@@ -4,11 +4,18 @@ require('dotenv').config()
 const table = 'InventoryClient'
 
 // configuration
+/*
+host: 'localhost',
+user: process.env.DB_USER,
+password: process.env.DB_PASS,
+db: process.env.DB_NAME
+*/
 var c = new Client({
-  host: 'localhost',
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  db: process.env.DB_NAME
+  host: '127.0.0.1',
+  port: 3000,
+  user: 'root',
+  passwd: 'XXXXXXXXX',
+  db: 'mysql'
 })
 
 const fillForm = (form, profile, callback) => {
@@ -23,6 +30,7 @@ const fillForm = (form, profile, callback) => {
   // Insert
   c.query(sql, function (err, rows) {
     if (err) throw err
+    console.log('SQL err' + err)
     if (typeof rows.affectedRows === 'undefined') {
       callback(null, {type: 'sql-error', filledForm: false})
     }
