@@ -5,17 +5,18 @@ const table = 'InventoryClient'
 
 // configuration
 /*
-host: 'localhost',
-user: process.env.DB_USER,
-password: process.env.DB_PASS,
-db: process.env.DB_NAME
+
+host: '127.0.0.1',
+port: 3000,
+user: 'root',
+passwd: 'XXXXXXXXX',
+db: 'mysql'
 */
 var c = new Client({
-  host: '127.0.0.1',
-  port: 3000,
-  user: 'root',
-  passwd: 'XXXXXXXXX',
-  db: 'mysql'
+  host: 'localhost',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  db: process.env.DB_NAME
 })
 
 const fillForm = (form, profile, callback) => {
