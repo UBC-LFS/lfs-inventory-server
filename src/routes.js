@@ -36,9 +36,9 @@ routes.get('/search/:searchterm', (req, res) => {
 	})
 })
 
-routes.get('/versions/:entryid', (req, res) => {
+routes.get('/search/version?:entryid', (req, res) => {
   const entryID = req.params.entryid
-  console.log('/search/:entryid : ' + entryID)
+  console.log('/search/version?:entryid : ' + entryID)
  	queryVersions(entryID, (err, result) => {
 	  if (err) {
 	    res.status(404).send(err)
@@ -65,5 +65,6 @@ routes.post('/update', (req, res) => {
     if (err) { res.status(404).send(err) } else result.type === 'error' ? res.status(404).send(result) : res.status(200).send(result)
   })
 })
+
 
 export default routes
