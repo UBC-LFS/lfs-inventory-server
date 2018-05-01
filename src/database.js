@@ -1,6 +1,6 @@
 var Client = require('mariasql')
 require('dotenv').config()
-// table
+// tables
 const table = 'InventoryClient'
 const versionEditsTable = 'InvetoryClientEdits'
 
@@ -20,9 +20,14 @@ var c = new Client({
   db: process.env.DB_NAME
 })
 
+const getSearchTerms = (profile, callback) => {
+  const sql = `SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='[database]' TABLE_NAME = ${table};`
+  console.log('QUERY FORM SQL : ' + sql)
+}
 
 // Query the database for search. The first search will be completed on the InventoryClient
 // table for the specific search. 
+// Currently search only handles a single field and search term.
 const queryForm = (profile, callback) => {
   const sql = `SELECT * FROM ${table} WHERE ('${form.searchField}' = '${form.searchTerm}');`
   console.log('QUERY FORM SQL : ' + sql)
@@ -70,5 +75,6 @@ export {
   fillForm,
   queryForm,
   queryVersions,
+  getSearchTerms
   //editVersions
 }

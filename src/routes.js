@@ -23,11 +23,21 @@ routes.post('/form', upload.array(), (req, res) => {
   })
 })
 
+routes.get('/search', (req, res) => {
+  getSearchTerms((err, result) => {
+    if (err) {
+      res.status(404).send(err)
+    } else {
+      res.status(200).send(result)
+    }
+  })
+})
 
-routes.get('/search/:searchterm', (req, res) => {
+routes.get('/search/:searchfield:searchterm', (req, res) => {
+  const searchField = req.params.searchfield
 	const searchTerm = req.params.searchterm
-	console.log('/search/:searchterm : ' + searchTerm)
-	queryForm(searchTerm, (err, result) => {
+	console.log('/search/:searchfield:searchterm: ' + searchTerm + 'for' + searchTerm)
+	queryForm(searchField, searchTerm, (err, result) => {
 	  if (err) {
 	    res.status(404).send(err)
 	  } else {
